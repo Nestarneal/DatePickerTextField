@@ -2,12 +2,12 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
-  s.name         = "DatePickerTextField"
-  s.version      = "1.0.0"
+  s.name         = "HFDatePickerTextField"
+  s.version      = "1.0.1"
   s.summary      = "A simple wrapper for UITextField that can pick date."
 
-  s.description  = "DatePickerTextField wrap the UITextField by replace its inputView and inputAccessory
-      with a UIDatePicker and a UIToolbar. DatePickerTextField also remember what's selected."
+  s.description  = "HFDatePickerTextField wrap the UITextField by replace its inputView and inputAccessory
+      with a UIDatePicker and a UIToolbar. HFDatePickerTextField also remember what's selected."
 
   s.homepage     = "https://github.com/Nestarneal/DatePickerTextField"
 
