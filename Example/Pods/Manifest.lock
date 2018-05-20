@@ -1,0 +1,16 @@
+PODS:
+  - DatePickerTextField (0.0.1)
+
+DEPENDENCIES:
+  - DatePickerTextField (from `../../DatePickerTextField`)
+
+EXTERNAL SOURCES:
+  DatePickerTextField:
+    :path: "../../DatePickerTextField"
+
+SPEC CHECKSUMS:
+  DatePickerTextField: fe70ad64bbce65b044b07927dd3e0a18396545e8
+
+PODFILE CHECKSUM: 2cb44c9735c240b43cff147e01a709da5e696705
+
+COCOAPODS: 1.5.2

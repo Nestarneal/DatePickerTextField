@@ -1,0 +1,6 @@
+framework module DatePickerTextField {
+  umbrella header "DatePickerTextField-umbrella.h"
+
+  export *
+  module * { export * }
+}
