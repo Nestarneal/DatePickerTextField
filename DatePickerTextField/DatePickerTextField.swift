@@ -75,6 +75,9 @@ public class DatePickerTextField: UITextField {
         
         // Set delegate.
         delegate = self
+        
+        // Set tint color to make the cursor disappeared.
+        tintColor = .clear
     }
     
     public override init(frame: CGRect) {
@@ -93,5 +96,9 @@ extension DatePickerTextField: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         datePicker.setDate(previousSelectedDate, animated: true)
         return true
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }
