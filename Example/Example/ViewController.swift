@@ -25,6 +25,9 @@ class ViewController: UIViewController {
 extension ViewController: DatePickerTextFieldDelegate {
     
     func datePickerTextField(_ datePickerTextField: DatePickerTextField, didSelectDate date: Date) {
-        print(date)
+        
+        if datePickerTextField.tag == 1 {
+            lowerDatePickerTextField.set(date: date)
+        }
     }
 }

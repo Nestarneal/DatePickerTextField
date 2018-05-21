@@ -26,6 +26,15 @@ public class DatePickerTextField: UITextField {
     
     @IBOutlet public weak var datePickerTextFieldDelegate: DatePickerTextFieldDelegate?
     
+    // MARK: Public Methods
+    
+    public func set(date: Date) {
+        previousSelectedDate = date
+        text = dateFormatter.string(from: date)
+        datePicker.setDate(date, animated: true)
+        datePickerTextFieldDelegate?.datePickerTextField(self, didSelectDate: date)
+    }
+    
     // MARK: - Actions
     
     @objc private func doneBarButtonItemPressed(sender: UIBarButtonItem) {
