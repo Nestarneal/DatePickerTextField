@@ -35,6 +35,10 @@ public class DatePickerTextField: UITextField {
         datePickerTextFieldDelegate?.datePickerTextField(self, didSelectDate: date)
     }
     
+    public func get() -> Date {
+        return previousSelectedDate
+    }
+    
     // MARK: - Actions
     
     @objc private func doneBarButtonItemPressed(sender: UIBarButtonItem) {

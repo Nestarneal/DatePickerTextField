@@ -15,6 +15,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lowerDatePickerTextField: DatePickerTextField!
     
+    
+    // MARK: - Actions
+    
+    @IBAction func getButtonPressed(_ sender: UIButton) {
+        print(lowerDatePickerTextField.get().description)
+    }
+    
+    
+    // MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

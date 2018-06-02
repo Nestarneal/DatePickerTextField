@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   
   s.name         = "HFDatePickerTextField"
-  s.version      = "1.1.1"
+  s.version      = "1.2.0"
   s.summary      = "A simple wrapper for UITextField that can pick date."
 
   s.description  = "HFDatePickerTextField wrap the UITextField by replace its inputView and inputAccessory
