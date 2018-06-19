@@ -24,20 +24,20 @@ public class DatePickerTextField: UITextField {
         let flexibleBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBar.items = [cancelBarButtonItem, flexibleBarButtonItem, doneBarButtonItem]
         return toolBar
-    }
+    }()
 
     private let datePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.setDate(Date(), animated: true)
         return datePicker
-    }
+    }()
     
     private let dateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dataFormatter
-    }
+    }()
 
     private var previousSelectedDate = Date()
     
