@@ -17,7 +17,7 @@ public class DatePickerTextField: UITextField {
 
     // MARK: - Properties
     
-    private lazy let toolBar = {
+    private let toolBar: UIToolbar = {
         let toolBar = UIToolbar()
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBarButtonItemPressed(sender:)))
         let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarButtonItemPressed(sender:)))
@@ -26,17 +26,17 @@ public class DatePickerTextField: UITextField {
         return toolBar
     }()
 
-    private let datePicker = {
+    private let datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.setDate(Date(), animated: true)
         return datePicker
     }()
     
-    private let dateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dataFormatter
+        return dateFormatter
     }()
 
     private var previousSelectedDate = Date()
