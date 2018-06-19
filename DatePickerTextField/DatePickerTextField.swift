@@ -17,12 +17,29 @@ public class DatePickerTextField: UITextField {
 
     // MARK: - Properties
     
-    private let toolBar = UIToolbar()
-    private let datePicker = UIDatePicker()
+    private lazy let toolBar = {
+        let toolBar = UIToolbar()
+        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBarButtonItemPressed(sender:)))
+        let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarButtonItemPressed(sender:)))
+        let flexibleBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [cancelBarButtonItem, flexibleBarButtonItem, doneBarButtonItem]
+        return toolBar
+    }
+
+    private let datePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.setDate(Date(), animated: true)
+        return datePicker
+    }
     
+    private let dateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dataFormatter
+    }
+
     private var previousSelectedDate = Date()
-    
-    private let dateFormatter = DateFormatter()
     
     @IBOutlet public weak var datePickerTextFieldDelegate: DatePickerTextFieldDelegate?
     
@@ -32,6 +49,8 @@ public class DatePickerTextField: UITextField {
         previousSelectedDate = date
         text = dateFormatter.string(from: date)
         datePicker.setDate(date, animated: true)
+
+        // Inform the set date to delegate.
         datePickerTextFieldDelegate?.datePickerTextField(self, didSelectDate: date)
     }
     
@@ -59,21 +78,12 @@ public class DatePickerTextField: UITextField {
     private func setUp() {
         
         // Set date picker.
-        datePicker.datePickerMode = .date
-        datePicker.setDate(previousSelectedDate, animated: true)
         inputView = datePicker
         
         // Set tool bar.
-        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBarButtonItemPressed(sender:)))
-        let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarButtonItemPressed(sender:)))
-        let flexibleBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolBar.items = [cancelBarButtonItem, flexibleBarButtonItem, doneBarButtonItem]
         toolBar.sizeToFit()
         inputAccessoryView = toolBar
-        
-        // Set the presentation format of date.
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        
+                
         // Set default text.
         text = dateFormatter.string(from: previousSelectedDate)
         
